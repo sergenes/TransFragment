@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.jfrog.bintray'
 apply plugin: 'com.github.dcendents.android-maven'
+def Properties properties = new Properties()
 
 ext {
     bintrayRepo = 'TransFragment'
@@ -18,10 +19,14 @@ ext {
     siteUrl = 'https://github.com/sergenes/TransFragment'
     gitUrl = 'https://github.com/sergenes/TransFragment.git'
 
-    developerId = 'sergenes'
-    developerName = 'Sergey Nes'
-    developerEmail = 'serge.nes@gmail.com'
+    properties.load(new FileInputStream(project.rootProject.file('local.properties')))
+    def user = properties['bintray.user'].toString()
+    def name = properties['bintray.name'].toString()
+    def email = properties['bintray.email'].toString()
 
+    developerId = user
+    developerName = name
+    developerEmail = email
 
     licenseName = 'The MIT License'
     licenseUrl = 'https://github.com/sergenes/TransFragment/blob/master/LICENSE'
