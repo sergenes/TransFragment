@@ -1,6 +1,5 @@
 # TransFragment
-This Lib will help you to implement animated transition through screens based on
-Android fragments.
+This Lib will help you to implement an animated transition through apps screens based on Fragments.
 
 
 Contact
