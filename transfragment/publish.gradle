@@ -1,0 +1,92 @@
+apply plugin: 'maven'
+apply plugin: 'signing'
+apply from: "sonatype.properties"
+
+group = 'org.nes.transfragment'
+archivesBaseName = "TransFragment"
+version = '1.0.0-SNAPSHOT'
+
+task androidJavadocs(type: Javadoc) {
+    options.links('http://docs.oracle.com/javase/7/docs/api/');
+    source = android.sourceSets.main.java.sourceFiles
+}
+
+task androidJavadocsJar(type: Jar, dependsOn: androidJavadocs) {
+    classifier = 'javadoc'
+    from androidJavadocs.destinationDir
+}
+
+task androidSourcesJar(type: Jar) {
+    classifier = 'sources'
+    from android.sourceSets.main.java.sourceFiles
+}
+
+artifacts {
+    archives androidSourcesJar
+    archives androidJavadocsJar
+}
+
+configurations {
+    archives {
+        extendsFrom configurations.default
+    }
+}
+
+signing {
+    required { has('release') && gradle.taskGraph.hasTask('uploadArchives') }
+    sign configurations.archives
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            def sonatypeUsername = ""
+            def sonatypePassword = ""
+            try {
+                sonatypeUsername = sonatypeUsernameLocal
+                sonatypePassword = sonatypePasswordLocal
+            } catch (MissingPropertyException e) {
+                println "Note: OOS Sonatype credentials not found in your local properties"
+            }
+
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                authentication(userName: sonatypeUsername, password: sonatypePassword)
+            }
+
+            snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+                authentication(userName: sonatypeUsername, password: sonatypePassword)
+            }
+
+            pom.project {
+                name 'Android Fragment transition helper'
+                packaging 'aar'
+                description 'Library that symplify using Fragment transition in Android'
+                url 'https://github.com/sergenes/TransFragment'
+
+                scm {
+                    url 'git@github.com:ribot/easy-adapter.git'
+                    connection 'scm:git:git@github.com/sergenes/TransFragment.git'
+                    developerConnection 'scm:git:git@github.com/sergenes/TransFragment.git'
+                }
+
+                licenses {
+                    license {
+                        name 'MIT'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        distribution 'repo'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id 'sergenes'
+                        name 'Serge Nes'
+                        email 'serge.nes@gmail.com'
+                    }
+                }
+            }
+        }
+    }
+}

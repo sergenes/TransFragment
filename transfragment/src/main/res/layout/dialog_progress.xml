@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layoutLoading"
+    android:layout_width="fill_parent"
+
+    android:layout_height="fill_parent"
+    android:background="#bf000000"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingBottom="50dp"
+    android:paddingTop="50dp">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/containerLayout"
+        android:layout_gravity="center"
+        android:background="@drawable/dialog_rounded_bg"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:background="@drawable/dialog_rounded_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/ProgressBarThumbnailLoading"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="@drawable/anim_progress_small_gray"
+                android:gravity="center"
+                android:scaleType="centerInside" />
+        </FrameLayout>
+
+
+        <View
+            android:id="@+id/separatorView"
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <TextView
+            android:id="@+id/progressTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="1"
+            android:gravity="center"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:text="Please Wait"
+            android:textColor="@color/colorPrimary" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,68 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.github.dcendents.android-maven'
+
+ext {
+    bintrayRepo = 'TransFragment'
+    bintrayName = 'TransFragment'
+
+    // Maven metadata
+    publishedGroupId = 'com.nes.transfragment'
+
+    libraryName = 'TransFragment'
+    artifact = 'transfragment'
+    licenses = ['MIT']
+
+    libraryDescription = 'Animated transition for Fragments in Android and more'
+    libraryVersion = '1.0.0'
+    siteUrl = 'https://github.com/sergenes/TransFragment'
+    gitUrl = 'https://github.com/sergenes/TransFragment.git'
+
+    developerId = 'sergenes'
+    developerName = 'Sergey Nes'
+    developerEmail = 'serge.nes@gmail.com'
+
+
+    licenseName = 'The MIT License'
+    licenseUrl = 'https://github.com/sergenes/TransFragment/blob/master/LICENSE'
+    allLicenses = ["MIT"]
+
+
+}
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.2"
+
+
+    defaultConfig {
+        minSdkVersion 17
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.1', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    implementation 'com.android.support:support-v4:26.1.0'
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+}
+
+apply from: 'https://raw.githubusercontent.com/attwellBrian/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/attwellBrian/JCenter/master/bintrayv1.gradle'
