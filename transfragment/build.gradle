@@ -35,6 +35,8 @@ ext {
 
 }
 
+
+
 android {
     compileSdkVersion 26
     buildToolsVersion "26.0.2"
@@ -56,6 +58,19 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    subprojects {
+        tasks.withType(Javadoc).all { enabled = false }
+    }
+
+
+//    task androidJavadocs(type: Javadoc) {
+//        // add this line
+//        failOnError false
+//        source = android.sourceSets.main.java.getSrcDirs()
+//    }
+
+
 
 }
 
