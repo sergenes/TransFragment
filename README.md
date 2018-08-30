@@ -1,5 +1,5 @@
 # TransFragment
-This Lib will help you to implement an animated transition through apps screens based on Fragments.
+This Lib will help you to implement the animated transitions through the apps screens based on Fragments.
 
 
 Contact
@@ -9,7 +9,7 @@ If you are using this lib, let me know contacting me at serge.nes@gmail.com
 
 MIT License
 =================================
-Copyright (c) 2017 Sergey Nes
+Copyright (c) 2017-2018 Sergey Nes
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
