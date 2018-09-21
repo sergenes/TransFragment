@@ -1,6 +1,20 @@
 # TransFragment
 This Lib will help you to implement the animated transitions through the apps screens based on Fragments.
 
+Installation
+---
+Step 1. Add it in your root build.gradle at the end of repositories:
+```groovy
+repositories {
+   maven { url "https://jitpack.io" }
+}
+```
+Step 2. Add the dependency
+```groovy
+dependencies {
+   implementation 'com.github.sergenes:TransFragment:1.2'
+}
+```
 
 Contact
 =================================
