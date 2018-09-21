@@ -1,1 +1,1 @@
-include ':app', ':transfragment'
+include ':transfragment'
