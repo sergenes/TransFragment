@@ -1,5 +1,6 @@
 # TransFragment
 This Lib will help you to implement the animated transitions through the apps screens based on Fragments.
+See the demo app (https://github.com/sergenes/TransFragmentDemo).
 
 Installation
 ---
