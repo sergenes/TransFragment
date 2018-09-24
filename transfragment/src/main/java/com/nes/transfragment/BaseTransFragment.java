@@ -1,11 +1,11 @@
 package com.nes.transfragment;
 
-import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
@@ -18,7 +18,7 @@ import java.lang.reflect.Constructor;
 /**
  * A simple {@link Fragment} subclass.
  */
-public abstract class BaseTransFragment extends android.app.Fragment {
+public abstract class BaseTransFragment extends Fragment {
     protected final String TAG = BaseTransFragment.this.getClass().getSimpleName();
 
     public enum AnimationType {
@@ -158,7 +158,7 @@ public abstract class BaseTransFragment extends android.app.Fragment {
 
     protected void forwardToFragment(BaseTransFragment fragment) {
         if (getFragmentManager() != null) {
-            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+            FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
 
             if (fragment.getAnimationType() == AnimationType.SLIDE_HORISONTAL) {
                 transaction.setCustomAnimations(R.animator.forward_in, R.animator.forward_out);
