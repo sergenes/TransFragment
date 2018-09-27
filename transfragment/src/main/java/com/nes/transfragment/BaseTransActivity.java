@@ -9,7 +9,7 @@ import android.view.Window;
 
 
 public class BaseTransActivity extends AppCompatActivity {
-    protected static final String TAG = BaseTransActivity.class.getSimpleName();
+    public static final String TAG = BaseTransActivity.class.getSimpleName();
 
 
     public enum FlowDirection {

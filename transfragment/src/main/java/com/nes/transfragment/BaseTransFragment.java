@@ -19,7 +19,7 @@ import java.lang.reflect.Constructor;
  * A simple {@link Fragment} subclass.
  */
 public abstract class BaseTransFragment extends Fragment {
-    protected final String TAG = BaseTransFragment.this.getClass().getSimpleName();
+    public final String TAG = BaseTransFragment.this.getClass().getSimpleName();
 
     public enum AnimationType {
         SLIDE_HORISONTAL,
@@ -161,9 +161,9 @@ public abstract class BaseTransFragment extends Fragment {
             FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
 
             if (fragment.getAnimationType() == AnimationType.SLIDE_HORISONTAL) {
-                transaction.setCustomAnimations(R.animator.forward_in, R.animator.forward_out);
+                transaction.setCustomAnimations(R.anim.slide_in, R.anim.slide_out);
             } else if (fragment.getAnimationType() == AnimationType.SLIDE_VERTICAL) {
-                transaction.setCustomAnimations(R.animator.push_in, R.animator.push_out);
+                transaction.setCustomAnimations(R.anim.push_up_in, R.anim.push_down_out);
 //            } else{
 //                transaction.setCustomAnimations(R.animator.fr_fade_in, R.animator.fr_fade_out);
             }
@@ -177,9 +177,9 @@ public abstract class BaseTransFragment extends Fragment {
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
         if (this.getAnimationType() == AnimationType.SLIDE_HORISONTAL) {
-            transaction.setCustomAnimations(R.animator.back_in, R.animator.back_out);
+            transaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_left);
         } else {
-            transaction.setCustomAnimations(R.animator.pop_in, R.animator.pop_out);
+            transaction.setCustomAnimations(R.anim.push_down_in, R.anim.push_down_out);
         }
 
         transaction.replace(getFragmentContainer(), fragment);
@@ -190,7 +190,7 @@ public abstract class BaseTransFragment extends Fragment {
         if (BaseTransFragment.this.getActivity() != null) {
             BaseTransFragment.this.getActivity().runOnUiThread(new Runnable() {
                 public void run() {
-                    if (_progress != null) {
+                    if (message != null) {
                         _progress.showMessage(message);
                     } else {
                         _progress.showMessage("Please Wait");
