@@ -15,4 +15,5 @@
     <color name="grey">#D2D4D8</color>
     <color name="green">#3fb24f</color>
     <color name="yellow">#FFFF00</color>
+    <color name="progress_dilaog_bacground">#7f000000</color>
 </resources>
