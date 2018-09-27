@@ -16,7 +16,7 @@ import java.lang.reflect.Constructor;
 
 
 /**
- * A simple {@link Fragment} subclass.
+ * A simple {@link android.support.v4.app.Fragment} subclass.
  */
 public abstract class BaseTransFragment extends Fragment {
     public final String TAG = BaseTransFragment.this.getClass().getSimpleName();
@@ -163,7 +163,7 @@ public abstract class BaseTransFragment extends Fragment {
             if (fragment.getAnimationType() == AnimationType.SLIDE_HORISONTAL) {
                 transaction.setCustomAnimations(R.anim.slide_in, R.anim.slide_out);
             } else if (fragment.getAnimationType() == AnimationType.SLIDE_VERTICAL) {
-                transaction.setCustomAnimations(R.anim.push_up_in, R.anim.push_down_out);
+                transaction.setCustomAnimations(R.anim.push_up_in, R.anim.push_up_out);
 //            } else{
 //                transaction.setCustomAnimations(R.animator.fr_fade_in, R.animator.fr_fade_out);
             }
