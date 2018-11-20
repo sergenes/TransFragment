@@ -4,8 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
@@ -16,7 +16,7 @@ import java.lang.reflect.Constructor;
 
 
 /**
- * A simple {@link android.support.v4.app.Fragment} subclass.
+ * A simple {@link Fragment} subclass.
  */
 public abstract class BaseTransFragment extends Fragment {
     public final String TAG = BaseTransFragment.this.getClass().getSimpleName();
